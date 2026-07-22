@@ -699,6 +699,168 @@ h1.s1-headline em{
 }
 
 /* ══════════════════════════════════════════════════════════
+   SLIDE 6 — STRATEGIC POLICY LAB
+══════════════════════════════════════════════════════════ */
+#slide-6{
+  padding:var(--pad-y) var(--pad-x);
+  background:var(--navy-dk);color:var(--text-light);
+}
+.s6-inner{max-width:1440px;margin:0 auto}
+.s6-headline{
+  font-family:var(--display);
+  font-size:clamp(2.5rem,5vw,5rem);
+  font-weight:900;line-height:.9;
+  letter-spacing:.04em;text-transform:uppercase;
+  color:var(--white);margin-bottom:.5rem;
+}
+.s6-sub{
+  font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--silver);margin-bottom:2rem;
+  padding-bottom:1.25rem;
+  border-bottom:1px solid rgba(155,168,168,.2);
+}
+
+/* Main subsection tabs */
+.s6-tabs{
+  display:flex;flex-wrap:wrap;gap:.4rem;
+  margin-bottom:2rem;
+}
+.s6-tab{
+  font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:var(--text-light-muted);
+  background:transparent;
+  border:1px solid rgba(155,168,168,.3);
+  padding:.65rem 1.1rem;cursor:pointer;
+  transition:all .2s;
+}
+.s6-tab:hover{color:var(--white);border-color:var(--orange)}
+.s6-tab.active{
+  color:var(--white);background:var(--orange);border-color:var(--orange);
+}
+
+.s6-panel{display:none;animation:fadeUp .4s both}
+.s6-panel.active{display:block}
+
+/* Series sub-tabs */
+.s6-series-tabs{
+  display:flex;gap:0;margin-bottom:1.5rem;
+  border-bottom:2px solid rgba(155,168,168,.2);
+}
+.s6-series-tab{
+  font-family:var(--display);font-size:.95rem;
+  font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+  color:var(--text-light-muted);
+  background:transparent;border:none;
+  padding:.65rem 1.4rem;cursor:pointer;
+  position:relative;transition:color .2s;
+}
+.s6-series-tab::after{
+  content:'';position:absolute;bottom:-2px;left:0;
+  width:0;height:2px;background:var(--orange);
+  transition:width .25s ease;
+}
+.s6-series-tab:hover:not([disabled]){color:var(--white)}
+.s6-series-tab.active{color:var(--white)}
+.s6-series-tab.active::after{width:100%}
+.s6-series-tab[disabled]{
+  color:rgba(155,168,168,.3);cursor:not-allowed;
+}
+.s6-series-tab .tag-inactive{
+  font-family:var(--mono);font-size:.5rem;
+  letter-spacing:.1em;color:var(--crimson);
+  margin-left:.5rem;border:1px solid var(--crimson);
+  padding:.05rem .35rem;vertical-align:middle;
+}
+
+.s6-series-body{font-family:var(--display);font-weight:300;color:var(--text-light2)}
+.s6-series-placeholder{
+  padding:1.5rem;border-left:3px solid var(--orange);
+  background:rgba(255,255,255,.03);font-size:.95rem;line-height:1.7;
+  max-width:60ch;
+}
+
+/* Microlearning class grid */
+.micro-series-body{ }
+.micro-status{
+  font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.1em;color:var(--text-light-muted);
+  margin-bottom:1rem;
+}
+.micro-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(160px,1fr));
+  gap:.5rem;
+}
+.class-btn{
+  font-family:var(--mono);font-size:.62rem;
+  letter-spacing:.05em;text-transform:uppercase;
+  text-align:left;text-decoration:none;
+  padding:.65rem .8rem;
+  border:1px solid rgba(155,168,168,.25);
+  background:rgba(255,255,255,.02);
+  color:var(--text-light-muted);
+  cursor:default;
+  display:flex;align-items:center;justify-content:space-between;
+  gap:.4rem;transition:all .2s;
+}
+.class-btn::after{
+  content:'○';font-size:.7rem;color:rgba(155,168,168,.4);
+}
+.class-btn.active{
+  color:var(--white);border-color:var(--orange);cursor:pointer;
+}
+.class-btn.active::after{content:'▶';color:var(--orange)}
+.class-btn.active:hover{background:var(--orange);color:var(--white)}
+.class-btn.active:hover::after{color:var(--white)}
+.class-btn.inactive{opacity:.45}
+.micro-series-inactive{
+  padding:1.5rem;border-left:3px solid var(--crimson);
+  background:rgba(204,0,34,.06);
+  font-family:var(--display);font-size:.95rem;
+  color:var(--text-light2);max-width:60ch;
+}
+
+/* Events grid */
+.events-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+  gap:0;
+  border-top:1px solid rgba(155,168,168,.2);
+  border-left:1px solid rgba(155,168,168,.2);
+}
+.event-card{
+  display:block;text-decoration:none;
+  border-right:1px solid rgba(155,168,168,.2);
+  border-bottom:1px solid rgba(155,168,168,.2);
+  padding:1.5rem 1.75rem;position:relative;overflow:hidden;
+  transition:background .25s;
+}
+.event-card::before{
+  content:'';position:absolute;left:0;top:0;
+  width:4px;height:0;background:var(--orange);
+  transition:height .35s ease;
+}
+.event-card:hover::before{height:100%}
+.event-card:hover{background:rgba(255,255,255,.04)}
+.event-card .ec-tag{
+  display:block;font-family:var(--mono);font-size:.56rem;
+  letter-spacing:.18em;text-transform:uppercase;
+  color:var(--orange);margin-bottom:.5rem;
+}
+.event-card .ec-name{
+  display:block;font-family:var(--display);font-size:1.15rem;
+  font-weight:700;text-transform:uppercase;letter-spacing:.03em;
+  color:var(--white);margin-bottom:.5rem;line-height:1.2;
+}
+.event-card .ec-url{
+  font-family:var(--mono);font-size:.6rem;
+  letter-spacing:.03em;color:var(--text-light-muted);
+  word-break:break-all;
+}
+
+/* ══════════════════════════════════════════════════════════
    FOOTER
 ══════════════════════════════════════════════════════════ */
 footer{
@@ -867,6 +1029,7 @@ h1.s1-headline{animation:fadeUp .6s .2s both}
     <a href="#" data-slide="2" class="nav-slide">Organisation</a>
     <a href="#" data-slide="3" class="nav-slide">NACE Matrix</a>
     <a href="#" data-slide="4" class="nav-slide">Intelligence</a>
+    <a href="#" data-slide="5" class="nav-slide">Strategic Policy Lab</a>
     <a href="mailto:procurement@scientiae-naturalis.org" class="nav-cta">Contact</a>
   </nav>
   <button class="hamburger" id="burger" aria-label="Toggle menu" aria-expanded="false">
@@ -1297,6 +1460,118 @@ h1.s1-headline{animation:fadeUp .6s .2s both}
       </div>
     </section>
 
+    <!-- ── SLIDE 6 — STRATEGIC POLICY LAB ─────────────── -->
+    <section class="slide" id="slide-6" aria-label="Strategic Policy Lab">
+      <div class="s6-inner">
+        <h2 class="s6-headline">Strategic Policy Lab</h2>
+        <div class="s6-sub">Executive Education &amp; Applied Policy Programmes</div>
+
+        <div class="s6-tabs" role="tablist" aria-label="Strategic Policy Lab sections">
+          <button class="s6-tab active" data-panel="exec" role="tab" aria-selected="true">Executive Trainings</button>
+          <button class="s6-tab" data-panel="workshop" role="tab" aria-selected="false">Workshop – Foresight Lab</button>
+          <button class="s6-tab" data-panel="cert" role="tab" aria-selected="false">Certification Program</button>
+          <button class="s6-tab" data-panel="micro" role="tab" aria-selected="false">Microlearning</button>
+          <button class="s6-tab" data-panel="events" role="tab" aria-selected="false">Events</button>
+        </div>
+
+        <!-- EXECUTIVE TRAININGS -->
+        <div class="s6-panel active" data-panel="exec">
+          <div class="s6-series-tabs">
+            <button class="s6-series-tab active" data-series="1">Series 1</button>
+            <button class="s6-series-tab" data-series="2">Series 2</button>
+            <button class="s6-series-tab" data-series="3">Series 3</button>
+          </div>
+          <div class="s6-series-body" data-series-body="1">
+            <div class="s6-series-placeholder">Executive Trainings — Series 1. Short-format intensives for senior decision-makers on knowledge arbitrage fundamentals across Health, Food, Environment, and Education.</div>
+          </div>
+          <div class="s6-series-body" data-series-body="2" hidden>
+            <div class="s6-series-placeholder">Executive Trainings — Series 2. Advanced applied modules building on Series 1, focused on institutional implementation and programme governance.</div>
+          </div>
+          <div class="s6-series-body" data-series-body="3" hidden>
+            <div class="s6-series-placeholder">Executive Trainings — Series 3. Specialist tracks for cross-sector leadership and multilateral coordination.</div>
+          </div>
+        </div>
+
+        <!-- WORKSHOP – FORESIGHT LAB -->
+        <div class="s6-panel" data-panel="workshop">
+          <div class="s6-series-tabs">
+            <button class="s6-series-tab active" data-series="1">Series 1</button>
+            <button class="s6-series-tab" data-series="2">Series 2</button>
+            <button class="s6-series-tab" data-series="3">Series 3</button>
+          </div>
+          <div class="s6-series-body" data-series-body="1">
+            <div class="s6-series-placeholder">Workshop – Foresight Lab — Series 1. Scenario-planning workshops on emerging risks and long-horizon policy shifts.</div>
+          </div>
+          <div class="s6-series-body" data-series-body="2" hidden>
+            <div class="s6-series-placeholder">Workshop – Foresight Lab — Series 2. Applied foresight exercises co-designed with client institutions.</div>
+          </div>
+          <div class="s6-series-body" data-series-body="3" hidden>
+            <div class="s6-series-placeholder">Workshop – Foresight Lab — Series 3. Facilitated stress-testing of client strategy against alternative futures.</div>
+          </div>
+        </div>
+
+        <!-- CERTIFICATION PROGRAM -->
+        <div class="s6-panel" data-panel="cert">
+          <div class="s6-series-tabs">
+            <button class="s6-series-tab active" data-series="1">Series 1</button>
+            <button class="s6-series-tab" data-series="2">Series 2</button>
+            <button class="s6-series-tab" data-series="3">Series 3</button>
+          </div>
+          <div class="s6-series-body" data-series-body="1">
+            <div class="s6-series-placeholder">Certification Program — Series 1. Foundational certificate in Knowledge Arbitrage methodology.</div>
+          </div>
+          <div class="s6-series-body" data-series-body="2" hidden>
+            <div class="s6-series-placeholder">Certification Program — Series 2. Sector-specialist certification (Health, Food, Environment, or Education track).</div>
+          </div>
+          <div class="s6-series-body" data-series-body="3" hidden>
+            <div class="s6-series-placeholder">Certification Program — Series 3. Advanced practitioner certification with capstone project review.</div>
+          </div>
+        </div>
+
+        <!-- MICROLEARNING -->
+        <div class="s6-panel" data-panel="micro">
+          <div class="s6-series-tabs">
+            <button class="s6-series-tab active" data-series="1">Series 1</button>
+            <button class="s6-series-tab" data-series="2">Series 2</button>
+            <button class="s6-series-tab" data-series="3" disabled>Series 3 <span class="tag-inactive">Inactive</span></button>
+          </div>
+          <div class="micro-series-body" data-series-body="1">
+            <div class="micro-status" data-micro-status="1">Checking class availability on GitHub…</div>
+            <div class="micro-grid" id="micro-grid-1"></div>
+          </div>
+          <div class="micro-series-body" data-series-body="2" hidden>
+            <div class="micro-status" data-micro-status="2">Checking class availability on GitHub…</div>
+            <div class="micro-grid" id="micro-grid-2"></div>
+          </div>
+          <div class="micro-series-body" data-series-body="3" hidden>
+            <div class="micro-series-inactive">Series 3 is not yet active. Classes will appear here once this series is launched.</div>
+          </div>
+        </div>
+
+        <!-- EVENTS -->
+        <div class="s6-panel" data-panel="events">
+          <div class="events-grid">
+            <a class="event-card" href="https://www.agritech-one.scientiae-naturalis.org" target="_blank" rel="noopener">
+              <span class="ec-tag">Scientific Conference</span>
+              <span class="ec-name">AgriTech-One</span>
+              <span class="ec-url">www.agritech-one.scientiae-naturalis.org</span>
+            </a>
+            <a class="event-card" href="https://www.ipr-cad.scientiae-naturalis.org" target="_blank" rel="noopener">
+              <span class="ec-tag">Scientific Conference</span>
+              <span class="ec-name">IPR-CAD</span>
+              <span class="ec-url">www.ipr-cad.scientiae-naturalis.org</span>
+            </a>
+            <a class="event-card" href="https://www.vgc.scientiae-naturalis.org" target="_blank" rel="noopener">
+              <span class="ec-tag">Scientific Conference</span>
+              <span class="ec-name">VGC</span>
+              <span class="ec-url">www.vgc.scientiae-naturalis.org</span>
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </div><!-- /slides-track -->
 </div><!-- /carousel-outer -->
 
@@ -1336,10 +1611,22 @@ h1.s1-headline{animation:fadeUp .6s .2s both}
         </ul>
       </div>
       <div class="sitemap-col">
+        <h3>Strategic Policy Lab</h3>
+        <ul>
+          <li><a href="#slide-6">Executive Trainings</a></li>
+          <li><a href="#slide-6">Workshop – Foresight Lab</a></li>
+          <li><a href="#slide-6">Certification Program</a></li>
+          <li><a href="#slide-6">Microlearning</a></li>
+          <li><a href="#slide-6">Events</a></li>
+        </ul>
+      </div>
+      <div class="sitemap-col">
         <h3>Contact &amp; Events</h3>
         <ul>
           <li><a href="mailto:procurement@scientiae-naturalis.org">Procurement Contact</a></li>
-          <li><a href="https://www.agritech-one.scientiae-naturalis.org" rel="noopener" target="_blank">AgriTech-One 2026</a></li>
+          <li><a href="https://www.agritech-one.scientiae-naturalis.org" rel="noopener" target="_blank">AgriTech-One</a></li>
+          <li><a href="https://www.ipr-cad.scientiae-naturalis.org" rel="noopener" target="_blank">IPR-CAD</a></li>
+          <li><a href="https://www.vgc.scientiae-naturalis.org" rel="noopener" target="_blank">VGC</a></li>
           <li><a href="/sitemap.xml">XML Sitemap</a></li>
           <li><a href="/robots.txt">robots.txt</a></li>
         </ul>
@@ -1395,31 +1682,46 @@ h1.s1-headline{animation:fadeUp .6s .2s both}
   <button class="arrow-btn" id="next-btn" aria-label="Next slide">&#8594;</button>
 </div>
 <div class="slide-dots" id="dots" role="tablist" aria-label="Slide indicators"></div>
-<div class="slide-counter" id="counter" aria-live="polite">01 / 05</div>
+<div class="slide-counter" id="counter" aria-live="polite">01 / 06</div>
 
-<?xml version="1.0" encoding="UTF-8"?>
+<!--
+  NOTE: the actual XML sitemap must be served as its own file at /sitemap.xml
+  (not embedded in this HTML document — invalid tags like <urlset>/<url>/<loc>
+  are otherwise treated as unknown inline elements and their text renders on
+  the page). Keeping the source here as a comment for reference only:
 
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-
-  <url>
-    <loc>https://www.scientiae-naturalis.org/</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
-
-  <url>
-    <loc>https://www.agritech-one.scientiae-naturalis.org/</loc>
-    <lastmod>2026-04-30</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.9</priority>
-  </url>
-
-</urlset>
+  <?xml version="1.0" encoding="UTF-8"?>
+  <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+    <url>
+      <loc>https://www.scientiae-naturalis.org/</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>monthly</changefreq>
+      <priority>1.0</priority>
+    </url>
+    <url>
+      <loc>https://www.agritech-one.scientiae-naturalis.org/</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.9</priority>
+    </url>
+    <url>
+      <loc>https://www.ipr-cad.scientiae-naturalis.org/</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+    <url>
+      <loc>https://www.vgc.scientiae-naturalis.org/</loc>
+      <lastmod>2026-04-30</lastmod>
+      <changefreq>weekly</changefreq>
+      <priority>0.8</priority>
+    </url>
+  </urlset>
+-->
 
 <script>
 // ── Carousel logic ────────────────────────────────────────
-const TOTAL = 5;
+const TOTAL = 6;
 let current = 0;
 const track = document.getElementById('track');
 const counterEl = document.getElementById('counter');
@@ -1487,6 +1789,112 @@ co.addEventListener('touchend',   e => {
 document.querySelectorAll('.gallery-item').forEach(item => {
   item.addEventListener('click', () => item.classList.toggle('open'));
 });
+
+// ══════════════════════════════════════════════════════════
+// STRATEGIC POLICY LAB — subsection tabs, series tabs,
+// and GitHub-backed microlearning class grid
+// ══════════════════════════════════════════════════════════
+
+// ── Main subsection tabs (Executive Trainings / Workshop / Certification / Microlearning / Events)
+document.querySelectorAll('.s6-tab').forEach(tab => {
+  tab.addEventListener('click', () => {
+    document.querySelectorAll('.s6-tab').forEach(t => { t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+    document.querySelectorAll('.s6-panel').forEach(p => p.classList.remove('active'));
+    tab.classList.add('active');
+    tab.setAttribute('aria-selected','true');
+    const panel = document.querySelector(`.s6-panel[data-panel="${tab.dataset.panel}"]`);
+    if(panel) panel.classList.add('active');
+  });
+});
+
+// ── Series sub-tabs (Series 1 / 2 / 3), scoped within each panel
+document.querySelectorAll('.s6-panel').forEach(panel => {
+  const seriesTabs = panel.querySelectorAll('.s6-series-tab');
+  seriesTabs.forEach(tab => {
+    tab.addEventListener('click', () => {
+      if(tab.hasAttribute('disabled')) return;
+      seriesTabs.forEach(t => t.classList.remove('active'));
+      panel.querySelectorAll('[data-series-body]').forEach(b => { b.hidden = true; });
+      tab.classList.add('active');
+      const body = panel.querySelector(`[data-series-body="${tab.dataset.series}"]`);
+      if(body) body.hidden = false;
+    });
+  });
+});
+
+// ── Microlearning: GitHub-backed video availability check ──
+// TODO: point these at your actual repository. Each class is expected
+// at:  videos/series-{seriesNumber}/week-{week}-day-{day}.mp4
+const MICRO_GITHUB_OWNER  = 'YOUR-GITHUB-ORG';           // e.g. 'scientiae-naturalis'
+const MICRO_GITHUB_REPO   = 'strategic-policy-lab-videos'; // e.g. 'microlearning-videos'
+const MICRO_GITHUB_BRANCH = 'main';
+const MICRO_CLASSES_TOTAL = 54;      // 9 weeks × 6 days = 54 classes per series
+const MICRO_DAYS_PER_WEEK = 6;
+
+function microVideoPath(series, week, day){
+  return `videos/series-${series}/week-${week}-day-${day}.mp4`;
+}
+function microVideoUrl(series, week, day){
+  return `https://github.com/${MICRO_GITHUB_OWNER}/${MICRO_GITHUB_REPO}/blob/${MICRO_GITHUB_BRANCH}/${microVideoPath(series, week, day)}`;
+}
+
+// Fetch the full repo file tree once (single API call), so we don't
+// hit GitHub's rate limit checking 100+ individual file paths.
+let microIndexPromise = null;
+function getMicroGithubIndex(){
+  if(microIndexPromise) return microIndexPromise;
+  microIndexPromise = fetch(`https://api.github.com/repos/${MICRO_GITHUB_OWNER}/${MICRO_GITHUB_REPO}/git/trees/${MICRO_GITHUB_BRANCH}?recursive=1`)
+    .then(res => { if(!res.ok) throw new Error('GitHub tree request failed: ' + res.status); return res.json(); })
+    .then(data => new Set((data.tree || []).filter(item => item.type === 'blob').map(item => item.path)))
+    .catch(err => {
+      console.warn('Strategic Policy Lab: could not reach GitHub repo, all classes will show as inactive until this is configured.', err);
+      return new Set();
+    });
+  return microIndexPromise;
+}
+
+async function buildMicroGrid(seriesNumber, gridId, statusId){
+  const grid = document.getElementById(gridId);
+  const statusEl = document.querySelector(`[data-micro-status="${statusId}"]`);
+  if(!grid) return;
+
+  const index = await getMicroGithubIndex();
+  grid.innerHTML = '';
+
+  let activeCount = 0;
+  for(let i = 0; i < MICRO_CLASSES_TOTAL; i++){
+    const week = Math.floor(i / MICRO_DAYS_PER_WEEK) + 1;
+    const day  = (i % MICRO_DAYS_PER_WEEK) + 1;
+    const path = microVideoPath(seriesNumber, week, day);
+    const exists = index.has(path);
+    if(exists) activeCount++;
+
+    const el = document.createElement(exists ? 'a' : 'button');
+    el.className = 'class-btn ' + (exists ? 'active' : 'inactive');
+    el.textContent = `Week ${week}, Day ${day}`;
+
+    if(exists){
+      el.href = microVideoUrl(seriesNumber, week, day);
+      el.target = '_blank';
+      el.rel = 'noopener';
+    } else {
+      el.type = 'button';
+      el.disabled = true;
+      el.title = 'Video not yet available in the repository';
+    }
+    grid.appendChild(el);
+  }
+
+  if(statusEl){
+    statusEl.textContent = index.size === 0
+      ? `Repository unreachable — configure MICRO_GITHUB_OWNER / MICRO_GITHUB_REPO to activate classes.`
+      : `${activeCount} of ${MICRO_CLASSES_TOTAL} classes available`;
+  }
+}
+
+// Build Series 1 and Series 2 grids (Series 3 is inactive by design, no fetch needed)
+buildMicroGrid(1, 'micro-grid-1', '1');
+buildMicroGrid(2, 'micro-grid-2', '2');
 </script>
 
 <!-- ══ PERFORMANCE: Resource hints ═══════════════════════ -->
